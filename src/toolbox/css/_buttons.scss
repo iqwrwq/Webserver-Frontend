@@ -1,0 +1,23 @@
+.btn {
+    border: 0;
+    font-size: 16px;
+    background-color: unset;
+    cursor: pointer;
+     :hover {
+        color: $greenish;
+    }
+    &-plus {
+        padding: 10px 10px 10px 0px;
+        .fa-minus-circle {
+            color: $greenish;
+        }
+        .fa-minus-circle:hover {
+            color: $black;
+        }
+    }
+    &-submit {
+        visibility: hidden;
+        float: inline-end;
+        font-size: 30px;
+    }
+}

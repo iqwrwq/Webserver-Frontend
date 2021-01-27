@@ -1,0 +1,16 @@
+@import 'var';
+.success {
+    color: $success-green;
+    background-color: $field-success-green;
+}
+
+.fail {
+    color: $error-red;
+    background-color: $field-error-red;
+}
+
+.messages {
+    padding: 10px;
+    height: 25px;
+    width: 100%;
+}
