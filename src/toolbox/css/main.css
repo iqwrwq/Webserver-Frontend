@@ -1,3 +1,73 @@
+.heading {
+  display: block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: #008080;
+}
+
+.heading .logo-container {
+  position: relative;
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+}
+
+.heading .logo-container .logo {
+  display: inline-block;
+}
+
+.heading .logo-container .logo-txt {
+  display: inline;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.heading .logo-container a {
+  color: #f5f5dc;
+  text-decoration: none;
+}
+
+.heading .logo-container a:hover {
+  color: #ffebcd;
+  cursor: pointer;
+}
+
+.heading .options {
+  display: inline;
+  width: 20%;
+  color: #ffebcd;
+  float: right;
+  margin-top: 1.0rem;
+}
+
+.heading .options .btn-darkmode:hover {
+  color: #ffebcd;
+  cursor: pointer;
+}
+
+.heading.darkmode {
+  background-color: #013939;
+}
+
+.heading.darkmode .logo-container a {
+  color: #a3ddc0;
+}
+
+.heading.darkmode .logo-container a:hover {
+  color: #efc37b;
+}
+
+.heading.darkmode .btn-darkmode {
+  color: #a3ddc0;
+}
+
 .btn {
   border: 0;
   font-size: 16px;
@@ -27,6 +97,10 @@
   font-size: 30px;
 }
 
+.btn-darkmode {
+  font-size: 20px;
+}
+
 .success {
   color: #4F8A10;
   background-color: #DFF2BF;
@@ -51,36 +125,9 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
-  position: relative;
-  display: block;
-  padding: 0.2rem 0.4rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #008080;
-  font-weight: 600;
-}
-
-header a {
-  color: #f5f5dc;
-  text-decoration: none;
-}
-
-header a:hover {
-  color: #ffebcd;
-}
-
-.logo {
-  display: inline-block;
-}
-
-.logo-txt {
-  display: inline;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+body.darkmode {
+  background-color: #282828;
+  color: white;
 }
 
 .display-dir-box {
@@ -91,7 +138,6 @@ header a:hover {
       -ms-flex-align: center;
           align-items: center;
   vertical-align: middle;
-  width: 100%;
   height: 2.5rem;
   padding: 0rem 1.2rem;
   color: #000;
@@ -108,6 +154,49 @@ header a:hover {
 .display-dir-box:hover {
   color: #008080;
   cursor: pointer;
+}
+
+.display-dir-box .input-field {
+  padding: 5px;
+  background-color: #f5f5dc;
+  border: 2px #fff solid;
+}
+
+.display-dir-box.darkmode {
+  color: #a3ddc0;
+  font-weight: 600;
+}
+
+.display-dir-box.darkmode:nth-of-type(odd) {
+  background-color: #303030;
+}
+
+.display-dir-box.darkmode:hover {
+  color: #efc37b;
+}
+
+.display-dir-box.darkmode .input-group .input-field {
+  background-color: #a3ddc0;
+}
+
+.display-dir-box.darkmode .btn .fa-plus-circle {
+  color: #a3ddc0;
+}
+
+.display-dir-box.darkmode .btn .fa-plus-circle:hover {
+  color: #efc37b;
+}
+
+.display-dir-box.darkmode .btn .fa-minus-circle {
+  color: #efc37b;
+}
+
+.display-dir-box.darkmode .btn .fa-minus-circle:hover {
+  color: #a3ddc0;
+}
+
+.display-dir-box.darkmode .btn-submit {
+  color: #efc37b;
 }
 
 #adding-box {
@@ -155,15 +244,13 @@ header a:hover {
   background-color: #008080;
 }
 
-.input-field {
-  padding: 5px;
-  background-color: #f5f5dc;
-  border: 2px #fff solid;
-}
-
 .cut-off {
   height: 2rem;
   width: 100%;
   background-color: #008080;
+}
+
+.cut-off.darkmode {
+  background-color: #013939;
 }
 /*# sourceMappingURL=main.css.map */

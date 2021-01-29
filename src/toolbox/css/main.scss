@@ -1,4 +1,5 @@
 @import 'var';
+@import 'header';
 @import 'buttons';
 @import 'basics';
 * {
@@ -9,28 +10,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
-    position: relative;
-    display: block;
-    padding: 0.2rem 0.4rem;
-    justify-content: center;
-    align-items: center;
-    background: $greenish;
-    font-weight: 600;
-    a {
-        color: $pastel-secondary;
-        text-decoration: none;
-        &:hover {
-            color: $pastel;
-        }
-    }
-}
-
-.logo {
-    display: inline-block;
-    &-txt {
-        display: inline;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+body {
+    &.darkmode {
+        background-color: #282828;
+        color: white;
     }
 }
 
@@ -38,7 +21,6 @@ header {
     display: flex;
     align-items: center;
     vertical-align: middle;
-    width: 100%;
     height: 2.5rem;
     padding: 0rem 1.2rem;
     color: $black;
@@ -51,6 +33,43 @@ header {
     &:hover {
         color: $greenish;
         cursor: pointer;
+    }
+    .input-field {
+        padding: 5px;
+        background-color: $pastel-secondary;
+        border: 2px $white solid;
+    }
+    &.darkmode {
+        color: $darkmode_pastel-secondary;
+        font-weight: 600;
+        &:nth-of-type(odd) {
+            background-color: $darkmode_pastel-blur;
+        }
+        &:hover {
+            color: $darkmode_pastel;
+        }
+        .input-group {
+            .input-field {
+                background-color: $darkmode_pastel-secondary;
+            }
+        }
+        .btn {
+            .fa-plus-circle {
+                color: $darkmode_pastel-secondary;
+                &:hover {
+                    color: $darkmode_pastel;
+                }
+            }
+            .fa-minus-circle {
+                color: $darkmode_pastel;
+                &:hover {
+                    color: $darkmode_pastel-secondary;
+                }
+            }
+            &-submit {
+                color: $darkmode_pastel;
+            }
+        }
     }
 }
 
@@ -90,14 +109,11 @@ header {
     }
 }
 
-.input-field {
-    padding: 5px;
-    background-color: $pastel-secondary;
-    border: 2px $white solid;
-}
-
 .cut-off {
     height: 2rem;
     width: 100%;
     background-color: $greenish;
+    &.darkmode {
+        background-color: $darkmode_greenish;
+    }
 }

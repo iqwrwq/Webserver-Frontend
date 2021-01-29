@@ -1,0 +1,53 @@
+.heading {
+    display: block;
+    flex-direction: row;
+    background: $greenish;
+    .logo-container {
+        position: relative;
+        display: inline-block;
+        padding: 0.2rem 0.4rem;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        .logo {
+            display: inline-block;
+            &-txt {
+                display: inline;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        }
+        a {
+            color: $pastel-secondary;
+            text-decoration: none;
+            &:hover {
+                color: $pastel;
+                cursor: pointer;
+            }
+        }
+    }
+    .options {
+        display: inline;
+        width: 20%;
+        color: $pastel;
+        float: right;
+        margin-top: 1.0rem;
+        .btn-darkmode {
+            &:hover {
+                color: $pastel;
+                cursor: pointer;
+            }
+        }
+    }
+    &.darkmode {
+        background-color: $darkmode_greenish;
+        .logo-container a {
+            color: $darkmode_pastel-secondary;
+            &:hover {
+                color: $darkmode_pastel;
+            }
+        }
+        .btn-darkmode {
+            color: $darkmode_pastel-secondary;
+        }
+    }
+}
