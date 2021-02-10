@@ -6,7 +6,7 @@ $messages = [
    'creation_success' => '',
    'success' => false
 ];
-
+$_VERSION = 'v1.12 drakula';
 
 function dir_is_empty($dirname)
 {
