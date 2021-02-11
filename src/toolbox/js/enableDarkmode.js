@@ -1,3 +1,7 @@
+var date = new Date();
+date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+const SESSION_EXPIRES_LONG = ";expires=" + date.toGMTString();
+
 class DarkmodeToggle {
 
     darkmodeToggleButtonOn;
@@ -18,7 +22,18 @@ class DarkmodeToggle {
         this.displayDirBoxes = document.getElementsByClassName("display-dir-box");
         this.HTMLCutOff = document.getElementById("cut-off");
 
+        this.initialize();
         this.togglers();
+
+
+    }
+
+    initialize() {
+        if (!document.cookie || document.cookie.length === 0 || document.cookie === "darkmode=false") {
+            document.cookie = "darkmode=false" + SESSION_EXPIRES_LONG;
+        } else if (document.cookie === "darkmode=true") {
+            this.activateDarkmode();
+        }
     }
 
 
@@ -62,6 +77,18 @@ class DarkmodeToggle {
         }
         this.HTMLCutOff.classList.remove("darkmode");
     }
+
+    setDarkModeCookie(state) {
+        if (state) {
+            document.cookie = "darkmode=true" + SESSION_EXPIRES_LONG;
+        } else {
+            document.cookie = "darkmode=false" + SESSION_EXPIRES_LONG;
+        }
+    }
+
+
+
+
 
 }
 

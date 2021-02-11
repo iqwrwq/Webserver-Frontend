@@ -4,25 +4,30 @@ const HOVER_OUT = "mouseout";
 var infoIcons = document.getElementsByClassName("info-icon");
 var infoLists = document.getElementsByClassName("info-list");
 
+
+
+console.log(infoIcons);
+console.log(infoLists);
+
 addListenerToInfoBtn();
 
 
 function addListenerToInfoBtn() {
     for (let i = 0; i < infoIcons.length; i++) {
-        currentInfoIcon = infoIcons[i];
-        currentInfoList = infoLists[i];
 
-        currentInfoIcon.addEventListener(HOVER_OVER, () => {
-            removeHideClassToInfoPanel(currentInfoList);
+
+        infoIcons[i].addEventListener(HOVER_OVER, () => {
+
+            removeHideClassFromInfoPanel(infoLists[i]);
         });
 
-        currentInfoIcon.addEventListener(HOVER_OUT, () => {
-            addHideClassToInfoPanel(currentInfoList);
+        infoIcons[i].addEventListener(HOVER_OUT, () => {
+            addHideClassToInfoPanel(infoLists[i]);
         });
     }
 }
 
-function removeHideClassToInfoPanel(currentInfoList) {
+function removeHideClassFromInfoPanel(currentInfoList) {
     currentInfoList.classList.remove("hide");
 }
 
