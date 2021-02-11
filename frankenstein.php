@@ -30,7 +30,9 @@ function dir_is_empty($dirname)
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" href="http://example.com/favicon.png">
+
+   <link rel="shortcut icon" href="https://s2.googleusercontent.com/s2/favicons?domain=www.stackoverflow.com" type="image/x-icon">
+
    <script src="https://kit.fontawesome.com/ee02357a59.js"></script>
    <title><?php echo $host ?></title>
 
@@ -300,9 +302,11 @@ function dir_is_empty($dirname)
    </style>
 
    <!-- CSS -->
+
 </head>
 
 <body>
+
    <!-- NAV -->
    <div id="heading" class="heading">
 
@@ -393,6 +397,10 @@ function dir_is_empty($dirname)
 
    <!-- DARKMODE -->
    <script>
+      var date = new Date();
+      date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+      const SESSION_EXPIRES_LONG = ";expires=" + date.toGMTString();
+
       class DarkmodeToggle {
 
          darkmodeToggleButtonOn;
@@ -413,7 +421,18 @@ function dir_is_empty($dirname)
             this.displayDirBoxes = document.getElementsByClassName("display-dir-box");
             this.HTMLCutOff = document.getElementById("cut-off");
 
+            this.initialize();
             this.togglers();
+
+
+         }
+
+         initialize() {
+            if (!document.cookie || document.cookie.length === 0 || document.cookie === "darkmode=false") {
+               document.cookie = "darkmode=false" + SESSION_EXPIRES_LONG;
+            } else if (document.cookie === "darkmode=true") {
+               this.activateDarkmode();
+            }
          }
 
 
@@ -458,10 +477,20 @@ function dir_is_empty($dirname)
             this.HTMLCutOff.classList.remove("darkmode");
          }
 
+         setDarkModeCookie(state) {
+            if (state) {
+               document.cookie = "darkmode=true" + SESSION_EXPIRES_LONG;
+            } else {
+               document.cookie = "darkmode=false" + SESSION_EXPIRES_LONG;
+            }
+         }
+
       }
 
       const darkmodeToggle = new DarkmodeToggle();
    </script>
+
+   <!-- DARKMODE -->
 
    <!-- INFOBUTTON -->
    <script>
@@ -476,20 +505,20 @@ function dir_is_empty($dirname)
 
       function addListenerToInfoBtn() {
          for (let i = 0; i < infoIcons.length; i++) {
-            currentInfoIcon = infoIcons[i];
-            currentInfoList = infoLists[i];
 
-            currentInfoIcon.addEventListener(HOVER_OVER, () => {
-               removeHideClassToInfoPanel(currentInfoList);
+
+            infoIcons[i].addEventListener(HOVER_OVER, () => {
+
+               removeHideClassFromInfoPanel(infoLists[i]);
             });
 
-            currentInfoIcon.addEventListener(HOVER_OUT, () => {
-               addHideClassToInfoPanel(currentInfoList);
+            infoIcons[i].addEventListener(HOVER_OUT, () => {
+               addHideClassToInfoPanel(infoLists[i]);
             });
          }
       }
 
-      function removeHideClassToInfoPanel(currentInfoList) {
+      function removeHideClassFromInfoPanel(currentInfoList) {
          currentInfoList.classList.remove("hide");
       }
 

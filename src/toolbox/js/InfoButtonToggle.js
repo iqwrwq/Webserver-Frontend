@@ -6,8 +6,6 @@ var infoLists = document.getElementsByClassName("info-list");
 
 
 
-console.log(infoIcons);
-console.log(infoLists);
 
 addListenerToInfoBtn();
 
